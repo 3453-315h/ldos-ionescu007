@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 		&usPortName,
 		0,	/* ObjectAttributes */
 		&portAttributes,
-		0,	/* Flags */
+		ALPC_MSGFLG_SYNC_REQUEST,
 		0,	/* RequiredServerSid */
 		0,	/* ConnectionMessage */
 		0,	/* BufferLength */
@@ -30,17 +30,16 @@ int main(int argc, char **argv)
 
 	if (NT_SUCCESS(status))
 	{
-		for (;;)
-		{
-			status = NtAlpcSendWaitReceivePort(hConnection,
-				0,	/* Flags */
-				&sendMessage,
-				0,	/* SendMessageAttributes */
-				0,	/* ReceiveMessage */
-				0,	/* BufferLength */
-				0,	/* ReceiveMessageAttributes */
-				0);	/* timeout */
-		}
+		NtAlpcSendWaitReceivePort(hConnection,
+			0,	/* Flags */
+			&sendMessage,
+			0,	/* SendMessageAttributes */
+			0,	/* ReceiveMessage */
+			0,	/* BufferLength */
+			0,	/* ReceiveMessageAttributes */
+			0);	/* timeout */
+		
+		return 0;
 	}
 
 	printf("ALPC connect failed!\n");
