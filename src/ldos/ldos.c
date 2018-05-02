@@ -22,8 +22,8 @@ int main(int argc, char **argv)
 		&portAttributes,
 		0,	/* Flags */
 		0,	/* RequiredServerSid */
-		0,  /* ConnectionMessage */
-		0,  /* BufferLength */
+		0,	/* ConnectionMessage */
+		0,	/* BufferLength */
 		0,	/* OutMessageAttributes */
 		0,	/* InMessageAttributes */
 		0);	/* Timeout */
@@ -33,13 +33,13 @@ int main(int argc, char **argv)
 		for (;;)
 		{
 			status = NtAlpcSendWaitReceivePort(hConnection,
-				0,  /* Flags */
+				0,	/* Flags */
 				&sendMessage,
-				0,  /* SendMessageAttributes */
-				0,  /* ReceiveMessage */
-				0,  /* BufferLength */
-				0,  /* ReceiveMessageAttributes */
-				0); /* timeout */
+				0,	/* SendMessageAttributes */
+				0,	/* ReceiveMessage */
+				0,	/* BufferLength */
+				0,	/* ReceiveMessageAttributes */
+				0);	/* timeout */
 		}
 	}
 
