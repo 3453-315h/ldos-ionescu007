@@ -8,6 +8,8 @@
 typedef USHORT CSHORT;
 typedef ULONG CLONG;
 
+#define ALPC_MSGFLG_SYNC_REQUEST 0x20000 
+
 typedef struct _QUAD
 {
 	double DoNotUseThisField;
